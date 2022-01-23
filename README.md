@@ -2,6 +2,7 @@
 
 ## Resources
 Data Source: [schools_complete.csv](Resources/schools_complete.csv), [students_complete.csv](Resources/students_complete.csv)
+
 Software: Anaconda 4.11.0, Python 3.7.11, MatPlotLib 3.5.0
 
 ## Overview
@@ -40,13 +41,13 @@ Count: 461
 
 After subtracting the number of 9th graders at Thomas High School from the Total Student Count to get an updated total, I then calculated the district-wide percentages of students passing Math, Reading, and both along with average math and reading scores and additional information than can be seen in the School Summary Dataframes below.
 ##### Summary of School District Data Grouped by School
-![per_school_summary_after](images/per_school_summary_after.png)
+![per_school_summary_df_after](images/per_school_summary_df_after.png)
 
 To get accurate data on passing rates for Thomas High School, I used a similar process to count the number of 10th-12th graders at Thomas High School and use that number as the total students at THS to calculate passing rates for the school. The reason for this was to ensure that the passing rates were not artificially lowered due to the removal of 461 math and reading test scores.
 
 Using the loc method I then passed those updated passing percentages back into the School Summary DataFrame to get an updated DataFrame.
 ##### School District Summary excluding 9th graders from THS in Passing Rates
-![per_school_summary_ths_students_adjusted](images/per_school_summary_ths_students_adjusted.png)
+![per_school_summary_df_ths_students_adjusted](images/per_school_summary_df_ths_students_adjusted.png)
 
 From that point forward the school district analysis was straight forward.
 
@@ -66,25 +67,25 @@ From that point forward the school district analysis was straight forward.
          ![per_school_summary_df_after](images/per_school_summary_df_after.png)
     - In order to compensate for the removal of the 461 Thomas High School 9th Graders' scores, I re-calculated the passing rates from THS as described in the "Process" section above, and created a new School Summary Dataframe to more accurately reflect the data.
     -   #### Per School Summary Dataframe After Excluding 9th Graders' from THS in Student Count
-           ![per_school_summary_ths_students_adjusted](images/per_school_summary_ths_students_adjusted.png)
+           ![per_school_summary_df_ths_students_adjusted](images/per_school_summary_df_ths_students_adjusted.png)
 
-- Replacing the math and reading scores with a NaN for 9th graders at Thomas High School had a significant impact on the % of students passing math, reading, and passing overall. The percentage of students passing math, reading, or overall dropped between 25-28% as you can see in the following images.
+- Replacing the math and reading scores with a NaN for 9th Graders at Thomas High School had a significant impact on the % of students passing math, reading, and passing overall. The percentage of students passing math, reading, or overall dropped between 25-28% as you can see in the following images.
     - #### Thomas High School Data Summary Including All Test Scores For All Students
-           ![THS_data_before.png](images/THS_data_before.png)
+        ![THS_data_before](images/THS_data_before.png)
     - #### Thomas High School Data Summary After Replacing Thomas High School 9th Graders' Scores with 'NaN'
-           ![THS_data_after.png](images/THS_data_after.png)     
+        ![THS_data_after](images/THS_data_after.png)     
 
 - Replacing the 9th Grade THS scores with a NaN had the following effects on Math and Reading Scores and Passing Rates
 
     - There was no effect whatsoever to Math and Reading Scores by Grade except for 9th Graders at Thomas High School, as can be seen in the following images where "nan" is listed instead of a numeric score for 9th Graders at Thomas High School.
-        - #### Math Scores by Grade Including All Test Scores For All Students
-             ![math_scores_by_grade_before]() 
+       - #### Math Scores by Grade Including All Test Scores For All Students
+          ![math_scores_by_grade_before](images/math_scores_by_grade_before.png) 
       - #### Math Scores By Grade After Replacing Thomas High School 9th Graders' Scores with 'NaN'
-             ![math_scores_by_grade_after]()
+          ![math_scores_by_grade_after](images/math_scores_by_grade_after.png)
       - #### Reading Scores by Grade Including All Test Scores For All Students
-          ![reading_scores_by_grade_before]() 
+          ![reading_scores_by_grade_before](images/reading_scores_by_grade_before.png) 
        - #### Reading Scores By Grade After Replacing Thomas High School 9th Graders' Scores with 'NaN'
-             ![reading_scores_by_grade_after]()<>
+          ![reading_scores_by_grade_after](images/reading_scores_by_grade_after.png)
        
     - There was no significant effect on Averages Scores or Passing Rates based on school spending per capita as shown in the tables below. Thomas High School spends $638 per student so we would only expect to see a difference in the data in the $630-644 Spending Range. The numbers in the DataFrame are formatted to round to the nearest tenth in the case of scores and the nearest whole number in the case of passing rates. Replacing the THS 9th Graders' test scores with 'NaN' had a smaller than 0.1 and 1% effect on final numbers, respectively.
         - #### Spending Summary DataFrame Including All Test Scores For All Students
