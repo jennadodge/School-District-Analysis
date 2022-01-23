@@ -1,10 +1,8 @@
 # School-District-Analysis
 
 ## Resources
-Data Source: schools_complete.csv, students_complete.csv
+Data Source: [schools_complete.csv](Resources/schools_complete.csv), [students_complete.csv](Resources/students_complete.csv)
 Software: Anaconda 4.11.0
-
-'Overview of the school district analysis: Explain the purpose of this analysis.
 
 ## Overview
 I was tasked with analyzing the school district data for look for trends in students' math and reading scores based on school size, school type (Charter or Public), per-student spending, and grade. After completing the initial analysis of the school district data I learned that the reading and math scores for 9th graders at Thomas High School have been altered and must not be considered in the data analysis.
@@ -30,8 +28,7 @@ student_data_df.loc[(student_data_df["grade"]=="9th") & (student_data_df["school
 student_data_df.loc[(student_data_df["grade"]=="9th") & (student_data_df["school_name"]=="Thomas High School"),"math_score"] = np.nan
 ```
 I next merged the student data and the school data into a dataframe that included all of the district data. The dataframe looked like this:
-****Insert Dataframe.png here
-
+![school_data_complete_df.png](images/school_data_complete_df.png)
 
 
 ## Results
@@ -39,8 +36,11 @@ I next merged the student data and the school data into a dataframe that include
 
 - By removing the THS 9th graders' math and reading scores, the percent of all kids in the district passing math, passing reading, and the overall passing percentage was lowered by 0.2-0.3 percentage points. The following images show the district summary before and after removing the scores.
 
-*** image of DF before
-*** image of DF after
+### District Summary DataFrame Including All Test Scores For All Students
+![district_summary_df_before.png](images/district_summary_df_before.png)
+
+### District Summary DataFrame After Replacing Thomas High School 9th Graders' Scores with 'NaN'
+![district_summary_df_after.png](images/district_summary_df_after.png)
 
 'How is the school summary affected?
 'How does replacing the ninth graders’ math and reading scores affect Thomas High School’s performance relative to the other schools?
