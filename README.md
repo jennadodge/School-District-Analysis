@@ -19,7 +19,7 @@ prefixes_suffixes = ["Dr. ", "Mr. ","Ms. ", "Mrs. ", "Miss ", " MD", " DDS", " D
 for word in prefixes_suffixes:
     student_data_df["student_name"] = student_data_df["student_name"].str.replace(word,"")
 ```
-Once that was complete, the next step was to remove the math and reading scores for 9th graders at Thomas High School and replace them with "NaN" so they will not be included in the district analysis.
+Once that was complete, the next step was to remove the math and reading scores for 9th graders at Thomas High School and replace them with "NaN" using np.nan so they will not be included in the district analysis.
 
 ```python
 # Use the loc method on the student_data_df to select all the reading scores from the 9th grade at Thomas High School and replace them with NaN.
@@ -40,6 +40,7 @@ thomas_ninth_grade_count = school_data_complete_df.loc[(school_data_complete_df[
 Count: 461
 
 After subtracting the number of 9th graders at Thomas High School from the Total Student Count to get an updated total, I then calculated the district-wide percentages of students passing Math, Reading, and both along with average math and reading scores and additional information than can be seen in the School Summary Dataframes below.
+
 ##### Summary of School District Data Grouped by School
 ![per_school_summary_df_after](images/per_school_summary_df_after.png)
 
@@ -63,7 +64,7 @@ Using the loc method I then passed those updated passing percentages back into t
 ##### School District Summary excluding 9th graders from THS in Passing Rates
 ![per_school_summary_df_ths_students_adjusted](images/per_school_summary_df_ths_students_adjusted.png)
 
-From that point forward the school district analysis was straight forward. 
+From that point forward the school district analysis was straight forward. The full code has been thoroughly commented and is viewable here: [PyCitySchools_Challenge.ipynb](PyCitySchools_Challenge.ipynb).
 
 ## Results
 
@@ -88,7 +89,9 @@ From that point forward the school district analysis was straight forward.
         ![THS_data_before](images/THS_data_before.png)
     - #### Thomas High School Data Summary After Replacing Thomas High School 9th Graders' Scores with 'NaN'
         ![THS_data_after](images/THS_data_after.png)     
-
+    - #### Thomas High School Data Summary Only Including THS 10th-12th Graders in Calculating Pass Rates
+        ![THS_data_after_ths_students_adjusted](images/THS_data_after_ths_students_adjusted.png)
+        
 - Replacing the 9th Grade THS scores with a NaN had the following effects on Math and Reading Scores and Passing Rates
 
     - There was no effect whatsoever to Math and Reading Scores by Grade except for 9th Graders at Thomas High School, as can be seen in the following images where "nan" is listed instead of a numeric score for 9th Graders at Thomas High School.
@@ -124,4 +127,4 @@ From that point forward the school district analysis was straight forward.
 'Summarize four changes in the updated school district analysis after reading and math scores for the ninth grade at Thomas High School have been replaced with NaNs.
 
 ### Summary of change in analysis
-- Include a statement summarizing four changes to the school district analysis after reading and math scores have been replaced
+- After changing the Thomas High School 9th Graders' Math and Reading scores to 'NaN', the district-wide passing rate for math decreased from 75.0% to 74.8% (with a corresponding decrease in average math score from 79.0 to 78.9), the district-wide passing rate for Reading decreased from 85.8% to 85.7%, and the overall passing rate went from 65.2% to 64.9% for students across the district. 
