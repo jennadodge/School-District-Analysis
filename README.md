@@ -92,8 +92,8 @@ From that point forward the school district analysis was straight forward. The f
     - #### Thomas High School Data Summary Only Including THS 10th-12th Graders in Calculating Pass Rates
         ![THS_data_after_ths_students_adjusted](images/THS_data_after_ths_students_adjusted.png)
         
-- Replacing the 9th Grade THS scores with a NaN had the following effects on Math and Reading Scores and Passing Rates
 
+#### Effects of replacing Thomas High School 9th Grader's scores with 'NaN' on Math and Reading Scores and Passing Rates.
     - There was no effect whatsoever to Math and Reading Scores by Grade except for 9th Graders at Thomas High School, as can be seen in the following images where "nan" is listed instead of a numeric score for 9th Graders at Thomas High School.
        - #### Math Scores by Grade Including All Test Scores For All Students
           ![math_scores_by_grade_before](images/math_scores_by_grade_before.png) 
@@ -124,7 +124,11 @@ From that point forward the school district analysis was straight forward. The f
 
 ## Summary
 
-'Summarize four changes in the updated school district analysis after reading and math scores for the ninth grade at Thomas High School have been replaced with NaNs.
-
 ### Summary of change in analysis
 - After changing the Thomas High School 9th Graders' Math and Reading scores to 'NaN', the district-wide passing rate for math decreased from 75.0% to 74.8% (with a corresponding decrease in average math score from 79.0 to 78.9), the district-wide passing rate for Reading decreased from 85.8% to 85.7%, and the overall passing rate went from 65.2% to 64.9% for students across the district. 
+- After changing the Thomas High School 9th Graders' Math and Reading Scores to 'NaN' and only using THS 10th-12th graders to calculate passing rates, the passing rate for math decreased from 98.3% to 92.3%, the passing rate for reading decreased from 97.3% to 97.0%, and the overall passing rate decreased from 90.9% to 90.6%.
+- In the DataFrame for math scores per grade, the scores for 9th Graders at Thomas High School went from 83.6% to 'nan' as a result of changing their test scores to 'NaN'.
+- Similarly, in the DataFrame for reading scores per grade, the scores for 9th Graders at Thomas High School went from 83.7% to 'nan' as a result of changing their test scores to 'NaN'.
+
+### Possible Conclusion
+It appears that the Math and Reading scores and the passing rates for 9th Graders at Thomas High School were above average both for the school district and for the school itself, because all of the passing rates and scores decreased once those scores were removed. The effects were small because there were over 39k total students with test scores contributing to the averages, and only 461 9th Graders at Thomas High School.
