@@ -43,13 +43,27 @@ After subtracting the number of 9th graders at Thomas High School from the Total
 ##### Summary of School District Data Grouped by School
 ![per_school_summary_df_after](images/per_school_summary_df_after.png)
 
-To get accurate data on passing rates for Thomas High School, I used a similar process to count the number of 10th-12th graders at Thomas High School and use that number as the total students at THS to calculate passing rates for the school. The reason for this was to ensure that the passing rates were not artificially lowered due to the removal of 461 math and reading test scores.
+To get accurate data on passing rates for Thomas High School, I used a similar process to count the number of 10th-12th graders at Thomas High School and use that number as the total students at THS to calculate passing rates for the school. The reason for this was to ensure that the passing rates were not artificially lowered due to the removal of 461 math and reading test scores. Below is an example of the code used to calculate updated math passing rates. 
+
+```python
+# Get the number of 10th-12th graders from Thomas High School (THS).
+ths_students_tenth_to_twelfth = per_school_summary_df.loc["Thomas High School", "Total Students"] - thomas_ninth_grade_count["Student ID"]
+
+# Get all the students passing math from THS
+ths_passing_math = school_data_complete_df.loc[(school_data_complete_df["math_score"]>= 70)&(school_data_complete_df["school_name"] == "Thomas High School")]
+
+# Calculate the percentage of 10th-12th grade students passing math from Thomas High School. 
+ths_passing_math_percentage = ths_passing_math["Student ID"].count()/ths_students_tenth_to_twelfth * 100
+```
+
+A similar method was used to calculate the percentage of students passing reading and passing overall.
 
 Using the loc method I then passed those updated passing percentages back into the School Summary DataFrame to get an updated DataFrame.
+
 ##### School District Summary excluding 9th graders from THS in Passing Rates
 ![per_school_summary_df_ths_students_adjusted](images/per_school_summary_df_ths_students_adjusted.png)
 
-From that point forward the school district analysis was straight forward.
+From that point forward the school district analysis was straight forward. 
 
 ## Results
 
